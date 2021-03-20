@@ -19,16 +19,7 @@ const App = () => {
   };
 
   const invokeCalendarModuleEvent = useCallback(() => {
-    CalendarModule.createCalendarEventCallback(
-      'testName',
-      'testLocation',
-      error => {
-        console.error(`Error found! ${error}`);
-      },
-      eventId => {
-        console.log(`event id ${eventId} returned`);
-      },
-    );
+    CalendarModule.createCalendarEvent('Party', 'BlatHata', 2012);
   }, []);
 
   return (

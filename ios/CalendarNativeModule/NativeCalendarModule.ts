@@ -9,12 +9,7 @@ import {NativeModules} from 'react-native';
 const {CalendarModule} = NativeModules;
 
 interface CalendarInterface {
-  createCalendarEventCallback(
-    name: string,
-    location: string,
-    callbackError?: (error: any) => void,
-    callbackSuccess?: (result?: any) => void,
-  ): void;
+  createCalendarEvent(name: string, location: string, date: number): void;
 }
 
 export default CalendarModule as CalendarInterface;
