@@ -4,9 +4,10 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  StyleSheet,
   useColorScheme,
 } from 'react-native';
-import NativeCalendarModule from './ios/CalendarNativeModule/NativeCalendarModule';
+import CalendarModule from './ios/CalendarNativeModule/NativeCalendarModule';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -18,19 +19,39 @@ const App = () => {
   };
 
   const invokeCalendarModuleEvent = useCallback(() => {
-    NativeCalendarModule.createCalendarEvent('foo', 'bar');
+    CalendarModule.createCalendarEventCallback(
+      'testName',
+      'testLocation',
+      error => {
+        console.error(`Error found! ${error}`);
+      },
+      eventId => {
+        console.log(`event id ${eventId} returned`);
+      },
+    );
   }, []);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={[backgroundStyle, styles.container]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={[backgroundStyle, styles.container]}
+        contentContainerStyle={styles.content}>
         <Button title="Press me" onPress={invokeCalendarModuleEvent} />
       </ScrollView>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default App;
