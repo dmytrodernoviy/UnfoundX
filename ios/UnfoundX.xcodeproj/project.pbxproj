@@ -103,10 +103,18 @@
 		15DD1CB52606698C007ED671 /* CalendarNativeModule */ = {
 			isa = PBXGroup;
 			children = (
-				15DD1CB226066829007ED671 /* RCTCalendarModule.h */,
-				15DD1CB926066A73007ED671 /* RCTCalendarModule.m */,
+				15DD1CBE2606722F007ED671 /* ios */,
 			);
 			path = CalendarNativeModule;
+			sourceTree = "<group>";
+		};
+		15DD1CBE2606722F007ED671 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				15DD1CB926066A73007ED671 /* RCTCalendarModule.m */,
+				15DD1CB226066829007ED671 /* RCTCalendarModule.h */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {

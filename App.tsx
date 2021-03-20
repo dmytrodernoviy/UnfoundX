@@ -5,12 +5,10 @@ import {
   ScrollView,
   StatusBar,
   useColorScheme,
-  NativeModules,
 } from 'react-native';
+import NativeCalendarModule from './ios/CalendarNativeModule/NativeCalendarModule';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-const {CalendarModule} = NativeModules;
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,7 +18,7 @@ const App = () => {
   };
 
   const invokeCalendarModuleEvent = useCallback(() => {
-    CalendarModule.createCalendarEvent('testName', 'testLocation');
+    NativeCalendarModule.createCalendarEvent('foo', 'bar');
   }, []);
 
   return (
