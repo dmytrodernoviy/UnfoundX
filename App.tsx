@@ -1,13 +1,12 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {
-  Button,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import CalendarModule from './ios/CalendarNativeModule/NativeCalendarModule';
+
+import MapView from './ios/MapNativeModule/MapView';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -18,19 +17,10 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const invokeCalendarModuleEvent = useCallback(() => {
-    CalendarModule.createCalendarEvent('Party', 'BlatHata', 2012);
-  }, []);
-
   return (
     <SafeAreaView style={[backgroundStyle, styles.container]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={[backgroundStyle, styles.container]}
-        contentContainerStyle={styles.content}>
-        <Button title="Press me" onPress={invokeCalendarModuleEvent} />
-      </ScrollView>
+      <MapView style={styles.mapView} />
     </SafeAreaView>
   );
 };
@@ -42,6 +32,9 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  mapView: {
+    flex: 1,
   },
 });
 
